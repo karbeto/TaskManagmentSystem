@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('category_id')->nullable()->constrained()->onDelete('set null');
             $table->string('title');
             $table->text('description')->nullable();
-            $table->string('status')->default('pending');
+            $table->enum('status', ['pending', 'completed'])->default('pending');
             $table->date('due_date')->nullable();
             $table->timestamps();
         });
